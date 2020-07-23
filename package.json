@@ -38,7 +38,6 @@
   },
   "homepage": "https://github.com/FanPu1/ncbi-sequence-retriever#readme",
   "devDependencies": {
-    "bioinformatics-hub": "^1.1.2",
     "eslint": "^7.4.0",
     "jest": "^26.1.0"
   },
