@@ -1,4 +1,5 @@
 const axios = require("axios");
+const FastaSeq = require("./fasta/FastaSeq");
 
 /**
  * A wapper class to retrieve peotein or nucleotide sequences from NCBI through EUtil.
@@ -21,9 +22,10 @@ class NcbiSeqRetriever {
    * @throws an error if maximium number of requests per second is reached (https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Coming_in_December_2018_API_Key),
    * or if retrieve data from NCBI encounter an error, or if the input id is not valid.
    */
-  async retrieveNucleotideSequences (ids, api_key) {
+  async retrieveNucleotideSequences (ids, format = "FASTA", api_key = undefined) {
     const outputString = await this.retrieveNCBISequences(this.nucleotideDB, ids, api_key);
-    return outputString;
+    if (format !== "JSON") return outputString;
+    return new FastaSeq("nucleotide", outputString).getAllSequencesWithIds();
   }
 
   /**
@@ -35,9 +37,10 @@ class NcbiSeqRetriever {
    * @throws an error if maximium number of requests per second is reached (https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Coming_in_December_2018_API_Key),
    * or if retrieve data from NCBI encounter an error, or if the input id is not valid.
    */
-  async retrieveProteinSequences (ids, api_key) {
+  async retrieveProteinSequences (ids, format = "FASTA", api_key = undefined) {
     const outputString = await this.retrieveNCBISequences(this.proteinDB, ids, api_key);
-    return outputString;
+    if (format !== "JSON") return outputString;
+    return new FastaSeq("nucleotide", outputString).getAllSequencesWithIds();
   }
 
   /**
