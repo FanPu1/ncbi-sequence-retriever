@@ -1,0 +1,48 @@
+{
+  "name": "ncbi-sequence-retriever",
+  "version": "1.0.0",
+  "description": "A light weighted tool to retrieve protein or nucleotide sequences based on list of ACCESSION ids from NCBI protein and nuccore database",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "node index.js",
+    "lint": "npx eslint .",
+    "lint-fix": "npx eslint . --fix"
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FanPu1/ncbi-sequence-retriever.git"
+  },
+  "keywords": [
+    "ncbi",
+    "FASTA",
+    "sequence",
+    "ACCESSION",
+    "Id",
+    "E-utilities",
+    "API",
+    "protein",
+    "DNA",
+    "RNA",
+    "nucleotide"
+  ],
+  "author": "Fan Pu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FanPu1/ncbi-sequence-retriever/issues"
+  },
+  "homepage": "https://github.com/FanPu1/ncbi-sequence-retriever#readme",
+  "devDependencies": {
+    "bioinformatics-hub": "^1.1.2",
+    "eslint": "^7.4.0",
+    "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
