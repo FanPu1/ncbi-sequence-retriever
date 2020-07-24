@@ -16,6 +16,7 @@ class NcbiSeqRetriever {
   /**
    * Retrieves necleotide sequence from NCBI nucleotide database (nuccore). https://www.ncbi.nlm.nih.gov/nuccore/
    * @param {Array} ids, an string array of ACCESSION Ids in NCBI nucleotide database.
+   * @param {String} format, the format of the returned sequences. Default input "FASTA". change to "JSON" if user want to return sequences as javascript object.
    * @param {String} api_key, a possibly null or undefined string of api_key. More rules about api_key can be found in this link:
    * https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Coming_in_December_2018_API_Key
    * @returns {String}, one or multiple sequences in FASTA format retrieved from NCBI nucore database.
@@ -23,14 +24,17 @@ class NcbiSeqRetriever {
    * or if retrieve data from NCBI encounter an error, or if the input id is not valid.
    */
   async retrieveNucleotideSequences (ids, format = "FASTA", api_key = undefined) {
+    if(Array.isArray(ids) && ids.length > 10) throw new Error ("The maxium number of ids should be less than 10.");
     const outputString = await this.retrieveNCBISequences(this.nucleotideDB, ids, api_key);
     if (format !== "JSON") return outputString;
+    if (outputString.length > 20000000) throw new Error("The returned sequences is longer than 20,000,000 charactors. Please use less ids");
     return new FastaSeq("nucleotide", outputString).getAllSequencesWithIds();
   }
 
   /**
    * Retrieves protein sequence from NCBI protein database. https://www.ncbi.nlm.nih.gov/protein/
-   * @param {Array} ids, an string array of ACCESSION Ids in NCBI nucleotide database.
+   * @param {Array} ids, an string array of ACCESSION Ids in NCBI protein database.
+   * @param {String} format, the format of the returned sequences. Default input "FASTA". change to "JSON" if user want to return sequences as javascript object.
    * @param {String} api_key, a possibly null or undefined string of api_key. More rules about api_key can be found in this link:
    * https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Coming_in_December_2018_API_Key
    * @returns {String}, one or multiple sequences in FASTA fromat retrieved from NCBI protein database.
@@ -56,8 +60,8 @@ class NcbiSeqRetriever {
       throw new Error ("No Ids. User should put at least one Id in the input array");
     } 
     const set = new Set(ids);
-    if (set.size > 200) {
-      throw new Error ("Too many Ids. The maxium number of ids should be less than 100.");
+    if (set.size > 50) {
+      throw new Error ("Too many Ids. The maxium number of protein ids should be less than 50.");
     }
   }
 
@@ -80,7 +84,7 @@ class NcbiSeqRetriever {
     if (api_key) {
       url = url + "api_key=" + api_key; 
     }
-
+    console.log(url);
     try {
       const response = await axios.get(url);
       return response.data;
