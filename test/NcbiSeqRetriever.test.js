@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-const NcbiSeqRetriever = require("./../index");
-const retriever = new NcbiSeqRetriever();
+const retriever= require("./../index");
 const nucleotidesIds = ["M65068.1"];
 const proteinids = ["AAA49004.1","AAK64208.1","NP_033918.1","NP_033919.1"];
 const apiKey = "fake_key";

@@ -60,7 +60,7 @@ class NcbiSeqRetriever {
       throw new Error ("No Ids. User should put at least one Id in the input array");
     } 
     const set = new Set(ids);
-    if (set.size > 50) {
+    if (set.size > 100) {
       throw new Error ("Too many Ids. The maxium number of protein ids should be less than 50.");
     }
   }

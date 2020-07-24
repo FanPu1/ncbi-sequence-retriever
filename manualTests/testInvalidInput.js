@@ -1,6 +1,4 @@
-const NcbiSeqRetriever = require("../index");
-
-const retriever = new NcbiSeqRetriever();
+const retriever = require("../index");
 
 // Different scenarios:
 retriever.retrieveNucleotideSequences([]).then(console.log);

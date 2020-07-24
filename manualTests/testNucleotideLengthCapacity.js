@@ -1,10 +1,7 @@
 /**
  * test maximum length of the nucleotide sequence can be retreived.
  */
-
-
-var Retriever = require ("../index");
-var retriever = new Retriever();
+var retriever = require ("../index");
 /*
 var ids = [
   "MT773134.1", // each sequence have 29,000 bp 

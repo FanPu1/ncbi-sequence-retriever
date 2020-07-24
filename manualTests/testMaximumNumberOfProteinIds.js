@@ -1,10 +1,7 @@
 /**
  * test maximum number of ids can be retreived from one request
  */
-
-
-var Retriever = require ("../index");
-var retriever = new Retriever();
+var retriever = require ("../index");
 
 var proteinIds = [
   "NP_001072811.1",
