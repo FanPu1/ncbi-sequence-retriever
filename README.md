@@ -61,7 +61,7 @@ Here are examples to fetch one mRNA sequence from [NCBI nucleotide databse](http
 var Retriever = require ("ncbi-sequence-retriever");
 var retriever = new Retriever();
 
-var nucleotidesIds = ["M65068.1"];  // add upto 50 accession Ids in this array
+var nucleotidesIds = ["M65068.1"];  // add upto 10 accession Ids in this array
 retriever.retrieveNucleotideSequences(nucleotidesIds).then((sequences)=>{
   console.log(sequences);
 });
@@ -91,11 +91,11 @@ The output from above code:
 ```
 
 ## Optional API key
-`retriever.retrieveNucleotideSequences()` and `retriever.retrieveProteinSequences()` can take a string API key as the third input parameter. This is optional. This parameter is set to be undefined by default. Adding an valid API key as the third input parameter can increase the number of sequence retrieve calls per second.
+`retriever.retrieveNucleotideSequences()` and `retriever.retrieveProteinSequences()` methods can take a string API key as the third input parameter. This is optional. This parameter is set to be undefined by default. Adding an valid API key as the third input parameter can increase the number of sequence retrieve calls per second.
 
 *On December 1, 2018, NCBI will begin enforcing the use of API keys that will offer enhanced levels of supported access to the E-utilities. After that date, any site (IP address) posting more than 3 requests per second to the E-utilities without an API key will receive an error message. By including an API key, a site can post up to 10 requests per second by default.* More rules about API key can be found in this link: https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Coming_in_December_2018_API_Key
 
-Example code with API key as one of the input parameter:
+Sample code with API key as the third input arguement:
 ```
 var Retriever = require ("ncbi-sequence-retriever");
 var retriever = new Retriever();
