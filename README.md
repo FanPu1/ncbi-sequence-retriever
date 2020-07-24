@@ -3,7 +3,7 @@
 
 This tool can fetch upto **50** protein sequences or  upto **10 short** nuclotide sequences in one sequence retrieve call. We strongly recommend that the lenght of each nucleotide sequence for query should be less than *100,000* bp.
 
-The retrieved sequences can be returned in FASTA format, or be returned as a javascipt object.
+The retrieved sequences can be returned as a string in FASTA format, or be returned as a javascipt object.
 
 *"ncbi-sequence-retriever"* is also a component of ["bioinformatics-hub"](https://www.npmjs.com/package/bioinformatics-hub) project.
 
