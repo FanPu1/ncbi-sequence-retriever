@@ -5,7 +5,7 @@ This tool can fetch upto **100** protein sequences or  upto **10 short** nucloti
 
 The retrieved sequences can be returned as a string in FASTA format, or be returned as a javascipt object.
 
-*"ncbi-sequence-retriever"* is also a component of ["bioinformatics-hub"](https://www.npmjs.com/package/bioinformatics-hub) project.
+*"ncbi-sequence-retriever"* is also a component of "NCBI-sequence" module in ["bioinformatics-hub"](https://www.npmjs.com/package/bioinformatics-hub) project.
 
 ## Installation
 ```
@@ -103,9 +103,9 @@ retriever.retrieveNucleotideSequences(nucleotidesIds, "JSON", apiKey).then((sequ
 ```
 
 ## Limitation
-* Due to the NCBI API key policy, any IP address is limited to use retriever.retrieveNucleotideSequences() and retriever.retrieveProteinSequences() methods for no more than 3 times per seconds.
-* This tool should **NOT** be used to retrieve whole genome sequences or other sequences longer than 575,161 bp. 
-We tested the capacity of the tool on retrieving the longest nucleotide sequence. The longest sequence we successfully retrieved is 
+* Due to the NCBI API key policy, any IP address is limited to use `retriever.retrieveNucleotideSequences()` and `retriever.retrieveProteinSequences()` methods for no more than 3 times per second.
+* This package is **NOT** designed to retrieve whole genome sequences or other sequences longer than 575,161 bp. 
+We tested the capacity of the package on retrieving the longest nucleotide sequence. The longest sequence we successfully retrieved is 
 [Cedratvirus lausannensis genome assembly, chromosome: cClCRIB-75](https://www.ncbi.nlm.nih.gov/nuccore/LT907979.1), which has a length of 575,161 bp. We retrieved this sequence using the code shown below.
   ```
   var retriever = require ("ncbi-sequence-retriever");
