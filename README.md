@@ -69,7 +69,7 @@ The output from above code:
 TTTATTGAGGAGGATGAGCTAAAGTTTGTACTGAAGGGCTTTACCCCAGATGGCAGAGACCTATCAGACA
 AAGAGACAAAGGCTCTTCTGGCTGCTGGAGATAAGGACGGTGATGGCAAAATCGGCGTGGAAAAA
 ```
-#### Return sequences as javascript object
+#### Return sequences as a javascript object
 ```
 var retriever = require ("ncbi-sequence-retriever");
 
