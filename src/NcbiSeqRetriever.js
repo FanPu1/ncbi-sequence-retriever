@@ -8,7 +8,7 @@ const FastaSeq = require("./fasta/FastaSeq");
  */
 class NcbiSeqRetriever {
   constructor () {
-    this.baseUrl = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi";
+    this.baseUrl = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi";
     this.nucleotideDB = "nuccore";
     this.proteinDB = "protein";
   }

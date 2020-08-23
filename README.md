@@ -116,7 +116,9 @@ We tested the capacity of the package on retrieving the longest nucleotide seque
   });
   ```
 ## Version Change
-* 1.1.1 
-  * Fix a bug related with an error when using react.
-* 1.1.0 
-  * Official relase version.
+- 1.1.2
+  - Fix a bug related with making request using https insteay of http.
+- 1.1.1 
+  - Fix a bug related with an error when using react.
+- 1.1.0 
+  - Official relase version.
