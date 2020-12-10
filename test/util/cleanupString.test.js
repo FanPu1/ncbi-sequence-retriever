@@ -1,4 +1,4 @@
-const cleanup = require("./../../src/util/cleanUpString");
+const cleanup = require("./../../src/util/cleanupString");
 
 /**
  * Test that cleanup() method returns expected string.
