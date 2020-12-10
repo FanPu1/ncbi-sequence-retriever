@@ -16,7 +16,7 @@ npm install ncbi-sequence-retriever --save
 Here are examples to fetch mulitple protein sequences from [NCBI protein databse](https://www.ncbi.nlm.nih.gov/protein/) with user-provided ACCESSION Ids.
 
 #### Return a string representive of sequences in FASTA format 
-```
+```js
 var retriever = require ("ncbi-sequence-retriever");
 
 var proteinIds = ["AAA49004.1","AAK64208.1"];  // add upto 100 accession Ids in this array
@@ -34,7 +34,7 @@ MCAEKSPAEMKSIFQKYAAKEGDPDQLSKEELKLLIQSEFPSLLKASSTLDNLFKELDKNGDGEVSYEEF
 EAFFKKLSQ
 ```
 #### Return sequences as a javascript object
-```
+```js
 var retriever = require ("ncbi-sequence-retriever");
 
 var proteinIds = ["AAA49004.1","AAK64208.1"];  // add upto 100 accession Ids in this array
@@ -43,7 +43,7 @@ retriever.retrieveProteinSequences(proteinIds, "JSON").then((sequences)=>{
 });
 ```
 The output from above code: 
-```
+```js
 { 'AAA49004.1 parvalbumin, partial [Gallus gallus]': 
     'FIEEDELKFVLKGFTPDGRDLSDKETKALLAAGDKDGDGKIGVEK',
   'AAK64208.1 calbindin D9k [Mus musculus]':
@@ -52,10 +52,10 @@ The output from above code:
 ```
 
 ## Fetch **nucleotide** sequences
-Here are examples to fetch one mRNA sequence from [NCBI nucleotide databse](https://www.ncbi.nlm.nih.gov/nuccore/) with user-provided ACCESSION Ids:
+Here are examples to fetch one mRNA sequence from [NCBI nucleotide database](https://www.ncbi.nlm.nih.gov/nuccore/) with user-provided ACCESSION Ids:
 
 #### Return a string representive of sequences in FASTA format 
-```
+```js
 var retriever = require ("ncbi-sequence-retriever");
 
 var nucleotidesIds = ["M65068.1"];  // add upto 10 accession Ids in this array
@@ -70,7 +70,7 @@ TTTATTGAGGAGGATGAGCTAAAGTTTGTACTGAAGGGCTTTACCCCAGATGGCAGAGACCTATCAGACA
 AAGAGACAAAGGCTCTTCTGGCTGCTGGAGATAAGGACGGTGATGGCAAAATCGGCGTGGAAAAA
 ```
 #### Return sequences as a javascript object
-```
+```js
 var retriever = require ("ncbi-sequence-retriever");
 
 var nucleotidesIds = ["M65068.1"];  // add upto 10 accession Ids in this array
@@ -79,7 +79,7 @@ retriever.retrieveNucleotideSequences(nucleotidesIds, "JSON").then((sequences)=>
 });
 ```
 The output from above code: 
-```
+```js
 {
   'M65068.1 Chicken parvalbumin mRNA, partial cds': 
     'TTTATTGAGGAGGATGAGCTAAAGTTTGTACTGAAGGGCTTTACCCCAGATGGCAGAGACCTATCAGACAAAGAGACAAAGGCTCTTCTGGCTGCTGGAGATAAGGACGGTGATGGCAAAATCGGCGTGGAAAAA' 
@@ -92,7 +92,7 @@ The output from above code:
 *On December 1, 2018, NCBI will begin enforcing the use of API keys that will offer enhanced levels of supported access to the E-utilities. After that date, any site (IP address) posting more than 3 requests per second to the E-utilities without an API key will receive an error message. By including an API key, a site can post up to 10 requests per second by default.* More rules about API key can be found in this link: https://www.ncbi.nlm.nih.gov/books/NBK25497/#chapter2.Coming_in_December_2018_API_Key
 
 Sample code with API key as the third input arguement:
-```
+```js
 var retriever = require ("ncbi-sequence-retriever");
 
 var nucleotidesIds = ["M65068.1"];  
@@ -107,7 +107,7 @@ retriever.retrieveNucleotideSequences(nucleotidesIds, "JSON", apiKey).then((sequ
 * This package is **NOT** designed to retrieve whole genome sequences or other sequences longer than 575,161 bp. 
 We tested the capacity of the package on retrieving the longest nucleotide sequence. The longest sequence we successfully retrieved is 
 [Cedratvirus lausannensis genome assembly, chromosome: cClCRIB-75](https://www.ncbi.nlm.nih.gov/nuccore/LT907979.1), which has a length of 575,161 bp. We retrieved this sequence using the code shown below.
-  ```
+  ```js
   var retriever = require ("ncbi-sequence-retriever");
 
   var ids= ["LT907979.1"];
